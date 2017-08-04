@@ -11,7 +11,12 @@
                     <tr>
                         <td>Your Name:</td>
                         <td>
-                            <input type="text" name="name">
+                            <input type="text" name="name" value="{{session['name']}}">
+                        </td>
+                        <td>
+                            {% if noName is defined %}
+                                <p style="color:red">{{noName}}</p>
+                            {% endif %}
                         </td>
                     </tr>
                     <tr>
@@ -40,10 +45,15 @@
                     </tr>
                     <tr>
                         <td>Comments(optional)</td>
+                        <td>
+                            {% if noComments is defined %}
+                                    <p style="color:red">{{noComments}}</p>
+                            {% endif %}
+                        </td>
                     </tr>
                 </tbody>
             </table>
-            <textarea name="comments" id="comments" cols="30" rows="10"></textarea>
+            <input name="comments" id="comments" value="{{session['comments']}}">
             <input type="submit" value="Button">
         </form>
     </body>
